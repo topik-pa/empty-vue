@@ -6,12 +6,14 @@
     <HomeCmp/>
     <div class="click" @click="increment">Click!</div>
     <div class="test">{{test}}</div>
+    <div class="send" @click="send">Send!</div>
     <FooterCmp/>
   </div>
 </template>
 
 <script>
 import store from '@/store'
+import { postData } from './../utils/server-api'
 
 // @ is an alias to /src
 import HeaderCmp from '@/components/HeaderCmp.vue'
@@ -26,6 +28,9 @@ export default {
     HomeCmp,
     FooterCmp
   },
+  beforeCreate () {
+    document.body.className = 'home'
+  },
   data () {
     return {
     }
@@ -33,6 +38,23 @@ export default {
   methods: {
     increment () {
       this.$store.commit('increment', 1)
+    },
+    send () {
+      var post = {
+        name: 'user',
+        password: 'password'
+      }
+      postData(post).then((response) => {
+        if (response.access_token) {
+          this.$store.commit('authenticated', {
+            authenticated: true,
+          })
+          //this.$router.replace({ name: 'HomePage' })
+        } else {
+          //
+        }
+      })
+
     }
   },
 
