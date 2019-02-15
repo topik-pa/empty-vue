@@ -7,6 +7,9 @@
     <div class="click" @click="increment">Click!</div>
     <div class="test">{{test}}</div>
     <div class="send" @click="send">Send!</div>
+
+    <ButtonCmp>button</ButtonCmp>
+    
     <FooterCmp/>
   </div>
 </template>
@@ -19,6 +22,7 @@ import { postData } from './../utils/server-api'
 import HeaderCmp from '@/components/HeaderCmp.vue'
 import HomeCmp from '@/components/HomeCmp.vue'
 import FooterCmp from '@/components/FooterCmp.vue'
+import ButtonCmp from '@/components/basic/ButtonCmp.vue'
 
 export default {
   name: 'home',
@@ -26,7 +30,8 @@ export default {
   components: {
     HeaderCmp,
     HomeCmp,
-    FooterCmp
+    FooterCmp,
+    ButtonCmp
   },
   beforeCreate () {
     document.body.className = 'home'
