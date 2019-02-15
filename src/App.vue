@@ -1,22 +1,29 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app">    
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+@import "./styles/reset.css";
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  //font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Poppins, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #000000;
+  //margin-top: 60px;
 
-  color: $primary;
+  //background: linear-gradient(to right, $primary, lighten($primary,30%));
+  //background-color: darken($primary,10%);
+  //background-color: lighten($primary,10%);
+  background-image: url("./assets/logo.png"), linear-gradient(to right, $primary, lighten($primary,30%));;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  //background-size: 690px;
+  background-attachment: fixed;
+  height: 100vh;
+
 }
 </style>
